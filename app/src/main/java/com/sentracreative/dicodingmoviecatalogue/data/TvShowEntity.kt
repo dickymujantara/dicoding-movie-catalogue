@@ -7,5 +7,6 @@ data class TvShowEntity(
     var desription : String,
     var episode : String,
     var year : String,
-    var rating : Double
+    var rating : Double,
+    var url_image : String
 )

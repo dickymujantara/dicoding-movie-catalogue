@@ -8,5 +8,6 @@ data class MovieEntity(
     var year : String,
     var duration: String,
     var rated : String,
-    var score : Double
+    var score : Double,
+    var url_image : String
 )
