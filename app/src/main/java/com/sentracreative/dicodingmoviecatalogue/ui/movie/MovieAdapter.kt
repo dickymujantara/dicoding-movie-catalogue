@@ -1,5 +1,6 @@
 package com.sentracreative.dicodingmoviecatalogue.ui.movie
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sentracreative.dicodingmoviecatalogue.R
 import com.sentracreative.dicodingmoviecatalogue.data.MovieEntity
+import com.sentracreative.dicodingmoviecatalogue.detail.movie.DetailMovieActivity
 import kotlinx.android.synthetic.main.items_movie.view.*
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
@@ -41,6 +43,13 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                 tv_duration.text = movie.duration
                 tv_genre.text = movie.duration
                 tv_score.text = movie.score.toString()
+
+                setOnClickListener {
+                    val intent = Intent(context,DetailMovieActivity::class.java).apply {
+                        putExtra(DetailMovieActivity.EXTRA_ID, movie.movieId)
+                    }
+                    context.startActivity(intent)
+                }
 
                 Glide.with(context)
                     .load(movie.url_image)
