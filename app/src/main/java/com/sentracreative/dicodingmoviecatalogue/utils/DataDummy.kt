@@ -33,7 +33,7 @@ object DataDummy {
         movies.add(
             MovieEntity(
                 "mov3",
-                "The Dark Knight",
+                "The Godfather: Part II",
                 "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
                 "Crime, Drama","1974","202 min","N/A",9.0,
                 "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg"
