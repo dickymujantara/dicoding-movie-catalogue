@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sentracreative.dicodingmoviecatalogue.R
-import com.sentracreative.dicodingmoviecatalogue.data.TvShowEntity
-import com.sentracreative.dicodingmoviecatalogue.detail.tvshow.DetailTvShowActivity
+import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.TvShowEntity
+import com.sentracreative.dicodingmoviecatalogue.ui.detail.tvshow.DetailTvShowActivity
 import kotlinx.android.synthetic.main.items_tv_show.view.*
 import kotlinx.android.synthetic.main.items_tv_show.view.img_poster
 import kotlinx.android.synthetic.main.items_tv_show.view.tv_genre
@@ -49,7 +49,7 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>(){
                 tv_score.text = tvShow.rating.toString()
 
                 setOnClickListener {
-                    val intent = Intent(context,DetailTvShowActivity::class.java).apply {
+                    val intent = Intent(context, DetailTvShowActivity::class.java).apply {
                         putExtra(DetailTvShowActivity.EXTRA_ID, tvShow.tvShowId)
                     }
                     context.startActivity(intent)

@@ -1,6 +1,10 @@
-package com.sentracreative.dicodingmoviecatalogue.data
+package com.sentracreative.dicodingmoviecatalogue.data.source.remote.response
 
-data class MovieEntity(
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class MovieResponse(
     var movieId : String,
     var title : String,
     var description : String,
@@ -10,4 +14,4 @@ data class MovieEntity(
     var rated : String,
     var score : Double,
     var url_image : String
-)
+) : Parcelable

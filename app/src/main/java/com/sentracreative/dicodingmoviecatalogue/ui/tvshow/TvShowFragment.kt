@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sentracreative.dicodingmoviecatalogue.R
+import com.sentracreative.dicodingmoviecatalogue.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 
 class TvShowFragment : Fragment() {
@@ -19,7 +20,8 @@ class TvShowFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null){
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
             val tvShows = viewModel.getTvShows()
             val adapter = TvShowAdapter()
             adapter.setTvShow(tvShows)

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sentracreative.dicodingmoviecatalogue.R
+import com.sentracreative.dicodingmoviecatalogue.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_movie.*
 
 class MovieFragment : Fragment() {
@@ -20,7 +21,8 @@ class MovieFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null){
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
             val movies = viewModel.getMovies()
             val adapter = MovieAdapter()
             adapter.setMovies(movies)

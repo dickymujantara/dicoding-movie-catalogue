@@ -1,4 +1,4 @@
-package com.sentracreative.dicodingmoviecatalogue.detail.movie
+package com.sentracreative.dicodingmoviecatalogue.ui.detail.movie
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sentracreative.dicodingmoviecatalogue.R
+import com.sentracreative.dicodingmoviecatalogue.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_detail_movie.*
 
 class DetailMovieActivity : AppCompatActivity() {
@@ -17,7 +18,9 @@ class DetailMovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_movie)
-        val viewModel = ViewModelProvider(this,ViewModelProvider.NewInstanceFactory())[DetailMovieViewModel::class.java]
+
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this,factory)[DetailMovieViewModel::class.java]
 
         val bundle = intent.extras
 

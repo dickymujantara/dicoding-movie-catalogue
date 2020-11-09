@@ -1,4 +1,4 @@
-package com.sentracreative.dicodingmoviecatalogue.detail.tvshow
+package com.sentracreative.dicodingmoviecatalogue.ui.detail.tvshow
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sentracreative.dicodingmoviecatalogue.R
+import com.sentracreative.dicodingmoviecatalogue.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_detail_tv_show.*
 
 class DetailTvShowActivity : AppCompatActivity() {
@@ -18,7 +19,8 @@ class DetailTvShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_tv_show)
 
-        val viewModel = ViewModelProvider(this,ViewModelProvider.NewInstanceFactory())[DetailTvShowViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this,factory)[DetailTvShowViewModel::class.java]
         val bundle = intent.extras
 
         if (bundle != null){

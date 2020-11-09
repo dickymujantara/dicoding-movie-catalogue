@@ -1,7 +1,7 @@
 package com.sentracreative.dicodingmoviecatalogue.utils
 
-import com.sentracreative.dicodingmoviecatalogue.data.MovieEntity
-import com.sentracreative.dicodingmoviecatalogue.data.TvShowEntity
+import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieEntity
+import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.TvShowEntity
 
 object DataDummy {
     fun generateMovies() : List<MovieEntity>{
@@ -122,95 +122,115 @@ object DataDummy {
     fun generateTvShows() : List<TvShowEntity>{
         val tvShows = ArrayList<TvShowEntity>()
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show1",
             "Planet Earth II",
             "Documentary",
             "David Attenborough returns in this breathtaking documentary showcasing life on Planet Earth.",
             "6 Episodes","2017",9.5,
             "https://m.media-amazon.com/images/M/MV5BZWYxODViMGYtMGE2ZC00ZGQ3LThhMWUtYTVkNGE3OWU4NWRkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_UX182_CR0,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show2",
             "Planet Earth",
             "Documentary",
             "Emmy Award-winning, 11 episodes, five years in the making, the most expensive nature documentary series ever commissioned by the BBC, and the first to be filmed in high definition.",
             "11 Episodes","2007",9.4,
             "https://m.media-amazon.com/images/M/MV5BNmZlYzIzMTItY2EzYS00YTEyLTg0ZjEtMDMzZjM3ODdhN2UzXkEyXkFqcGdeQXVyNjI0MDg2NzE@._V1_UX182_CR0,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show3",
             "Band of Brothers",
             "Action, Drama, History",
             "The story of Easy Company of the U.S. Army 101st Airborne Division, and their mission in World War II Europe, from Operation Overlord, through V-J Day.",
             "10 Episodes","2001",9.4,
             "https://m.media-amazon.com/images/M/MV5BMTI3ODc2ODc0M15BMl5BanBnXkFtZTYwMjgzNjc3._V1_UX182_CR0,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show4",
             "Breaking Bad",
             "Crime, Drama, Thriller",
             "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
             "62 Episodes","2008-2013",9.4,
             "https://m.media-amazon.com/images/M/MV5BMjhiMzgxZTctNDc1Ni00OTIxLTlhMTYtZTA3ZWFkODRkNmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR5,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show5",
             "Chernobyl",
             " Drama, History, Thriller",
             "In April 1986, an explosion at the Chernobyl nuclear power plant in the Union of Soviet Socialist Republics becomes one of the world's worst man-made catastrophes.",
             "5 Episodes","2019",9.4,
             "https://m.media-amazon.com/images/M/MV5BZGQ2YmMxZmEtYjI5OS00NzlkLTlkNTEtYWMyMzkyMzc2MDU5XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_UX182_CR0,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show6",
             "The Wire",
             " Crime, Drama, Thriller",
             "The Baltimore drug scene, as seen through the eyes of drug dealers and law enforcement.",
             "60 Episodes","2002-2008",9.3,
             "https://m.media-amazon.com/images/M/MV5BZmY5ZDMxODEtNWIwOS00NjdkLTkyMjktNWRjMDhmYjJjN2RmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_UX182_CR0,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show7",
             "Blue Planet II ",
             "Documentary",
             "David Attenborough returns to the world's oceans in this sequel to the acclaimed documentary filming rare and unusual creatures of the deep, as well as documenting the problems our oceans face.",
             "8 Episodes","2017-2018",9.3,
             "https://m.media-amazon.com/images/M/MV5BYjg2ODk0MjUtNmMzZS00MjY0LWI1YWMtN2JhMjRmZGUwY2I3XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY268_CR4,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show8",
             "Our Planet",
             "Documentary",
             "Documentary series focusing on the breadth of the diversity of habitats around the world, from the remote Arctic wilderness and mysterious deep oceans to the vast landscapes of Africa and diverse jungles of South America.",
             "8 Episodes","2019",9.3,
             "https://m.media-amazon.com/images/M/MV5BN2I1ZjA5YjQtYmQ0ZS00ZmE1LTk1ZjktNTQ5ODIzY2JiZDdhXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_UX182_CR0,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show9",
             "Cosmos: A Spacetime Odyssey",
             "Documentary",
             "An exploration of our discovery of the laws of nature and coordinates in space and time.",
             "13 Episodes","2014",9.3,
             "https://m.media-amazon.com/images/M/MV5BZTk5OTQyZjYtMDk3Yy00YjhmLWE2MTYtZmY4NTg1YWUzZTQ0XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_UX182_CR0,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
-        tvShows.add(TvShowEntity(
+        tvShows.add(
+            TvShowEntity(
             "show10",
             "Cosmos",
             "Documentary",
             "Astronomer Carl Sagan leads us on an engaging guided tour of the various elements and cosmological theories of the universe.",
             "13 Episodes","1980",9.3,
             "https://m.media-amazon.com/images/M/MV5BMTY4MGQyNjgtMzdmZS00MjQ5LWIyMzItYjYyZmQzNjVhYjMyXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_UY268_CR5,0,182,268_AL_.jpg"
-        ))
+        )
+        )
 
         return tvShows
     }

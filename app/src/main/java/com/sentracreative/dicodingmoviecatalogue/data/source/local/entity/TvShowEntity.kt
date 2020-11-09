@@ -1,4 +1,4 @@
-package com.sentracreative.dicodingmoviecatalogue.data
+package com.sentracreative.dicodingmoviecatalogue.data.source.local.entity
 
 data class TvShowEntity(
     var tvShowId : String,

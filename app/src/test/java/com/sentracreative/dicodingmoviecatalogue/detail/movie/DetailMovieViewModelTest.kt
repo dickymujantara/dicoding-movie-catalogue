@@ -1,5 +1,6 @@
 package com.sentracreative.dicodingmoviecatalogue.detail.movie
 
+import com.sentracreative.dicodingmoviecatalogue.ui.detail.movie.DetailMovieViewModel
 import com.sentracreative.dicodingmoviecatalogue.utils.DataDummy
 import org.junit.Assert.*
 import org.junit.Before

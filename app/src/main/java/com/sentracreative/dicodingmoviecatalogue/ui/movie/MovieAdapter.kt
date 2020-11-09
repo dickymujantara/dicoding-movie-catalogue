@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sentracreative.dicodingmoviecatalogue.R
-import com.sentracreative.dicodingmoviecatalogue.data.MovieEntity
-import com.sentracreative.dicodingmoviecatalogue.detail.movie.DetailMovieActivity
+import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieEntity
+import com.sentracreative.dicodingmoviecatalogue.ui.detail.movie.DetailMovieActivity
 import kotlinx.android.synthetic.main.items_movie.view.*
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
@@ -45,7 +45,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                 tv_score.text = movie.score.toString()
 
                 setOnClickListener {
-                    val intent = Intent(context,DetailMovieActivity::class.java).apply {
+                    val intent = Intent(context, DetailMovieActivity::class.java).apply {
                         putExtra(DetailMovieActivity.EXTRA_ID, movie.movieId)
                     }
                     context.startActivity(intent)
