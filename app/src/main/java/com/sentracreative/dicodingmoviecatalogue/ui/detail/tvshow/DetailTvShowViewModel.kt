@@ -1,5 +1,6 @@
 package com.sentracreative.dicodingmoviecatalogue.ui.detail.tvshow
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.sentracreative.dicodingmoviecatalogue.data.MovieCatalogueRepository
 import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.TvShowEntity
@@ -12,6 +13,6 @@ class DetailTvShowViewModel(private val movieCatalogueRepository: MovieCatalogue
         this.tvShowId = tvShowId
     }
 
-    fun getSelectedTvShow() : TvShowEntity = movieCatalogueRepository.getTvShow(tvShowId)
+    fun getSelectedTvShow() : LiveData<TvShowEntity> = movieCatalogueRepository.getTvShow(tvShowId)
 
 }

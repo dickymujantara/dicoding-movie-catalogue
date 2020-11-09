@@ -1,5 +1,6 @@
 package com.sentracreative.dicodingmoviecatalogue.ui.detail.movie
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.sentracreative.dicodingmoviecatalogue.data.MovieCatalogueRepository
 import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieEntity
@@ -12,6 +13,6 @@ class DetailMovieViewModel(private val movieCatalogueRepository: MovieCatalogueR
         this.movieId = movieId
     }
 
-    fun getSelectedMovie() : MovieEntity = movieCatalogueRepository.getMovie(movieId)
+    fun getSelectedMovie() : LiveData<MovieEntity> = movieCatalogueRepository.getMovie(movieId)
 
 }
