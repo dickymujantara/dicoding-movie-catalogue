@@ -3,6 +3,7 @@ package com.sentracreative.dicodingmoviecatalogue.data.source.remote
 import android.os.Handler
 import com.sentracreative.dicodingmoviecatalogue.data.source.remote.response.MovieResponse
 import com.sentracreative.dicodingmoviecatalogue.data.source.remote.response.TvShowResponse
+import com.sentracreative.dicodingmoviecatalogue.utils.EspressoldingResource
 import com.sentracreative.dicodingmoviecatalogue.utils.JsonHelper
 
 class RemoteDataSource private constructor(private val jsonHelper: JsonHelper){
@@ -21,18 +22,34 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper){
     }
 
     fun getAllMovies(callback : LoadMoviesCallback){
-        handler.postDelayed({callback.onAllMoviesReceived(jsonHelper.loadMovies())}, SERVICE_LATENCY_IN_MILLIS)
+        EspressoldingResource.increment()
+        handler.postDelayed({
+            callback.onAllMoviesReceived(jsonHelper.loadMovies())
+            EspressoldingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     fun getMovies(movieId : String, callback : loadMovieCallback){
-        handler.postDelayed({callback.onMovieReceived(jsonHelper.loadMovie(movieId))}, SERVICE_LATENCY_IN_MILLIS)
+        EspressoldingResource.increment()
+        handler.postDelayed({
+            callback.onMovieReceived(jsonHelper.loadMovie(movieId))
+            EspressoldingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     fun getAllTvShows(callback : loadTvShowsCallback){
-        handler.postDelayed({callback.onAllTvShowsReceived(jsonHelper.loadTvShows())}, SERVICE_LATENCY_IN_MILLIS)
+        EspressoldingResource.increment()
+        handler.postDelayed({
+            callback.onAllTvShowsReceived(jsonHelper.loadTvShows())
+            EspressoldingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
     fun getTvShow(tvShowId : String, callback : loadTvShowCallback){
-        handler.postDelayed({callback.onTvShowReceived(jsonHelper.loadTvShow(tvShowId))}, SERVICE_LATENCY_IN_MILLIS)
+        EspressoldingResource.increment()
+        handler.postDelayed({
+            callback.onTvShowReceived(jsonHelper.loadTvShow(tvShowId))
+            EspressoldingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     interface LoadMoviesCallback{
