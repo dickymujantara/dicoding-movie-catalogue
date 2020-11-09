@@ -1,0 +1,11 @@
+{
+    "movieId" : "mov7",
+    "title" : "The Lord of the Rings: The Return of the King",
+    "description" : "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+    "genre" : "Action, Adventure, Drama",
+    "year" : "2003",
+    "duration" : "201 min",
+    "rated" : "PG-13",
+    "score" : 8.9,
+    "url_image" : "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg"
+}
