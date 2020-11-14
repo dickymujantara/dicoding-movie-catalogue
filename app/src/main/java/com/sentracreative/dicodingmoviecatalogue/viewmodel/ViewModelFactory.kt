@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sentracreative.dicodingmoviecatalogue.data.MovieCatalogueRepository
 import com.sentracreative.dicodingmoviecatalogue.di.Injection
+import com.sentracreative.dicodingmoviecatalogue.ui.bookmark.movie.BookmarkMovieViewModel
+import com.sentracreative.dicodingmoviecatalogue.ui.bookmark.tvshow.BookmarkTvShowViewModel
 import com.sentracreative.dicodingmoviecatalogue.ui.detail.movie.DetailMovieViewModel
 import com.sentracreative.dicodingmoviecatalogue.ui.detail.tvshow.DetailTvShowViewModel
 import com.sentracreative.dicodingmoviecatalogue.ui.movie.MovieViewModel
@@ -36,6 +38,12 @@ class ViewModelFactory private constructor(private val mMovieCatalogueRepository
             }
             modelClass.isAssignableFrom(DetailTvShowViewModel::class.java) -> {
                 DetailTvShowViewModel(mMovieCatalogueRepository) as T
+            }
+            modelClass.isAssignableFrom(BookmarkMovieViewModel::class.java) -> {
+                BookmarkMovieViewModel(mMovieCatalogueRepository) as T
+            }
+            modelClass.isAssignableFrom(BookmarkTvShowViewModel::class.java) -> {
+                BookmarkTvShowViewModel(mMovieCatalogueRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

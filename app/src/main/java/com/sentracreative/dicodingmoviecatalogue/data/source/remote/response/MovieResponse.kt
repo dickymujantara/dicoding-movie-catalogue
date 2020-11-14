@@ -13,5 +13,5 @@ data class MovieResponse(
     val duration: String,
     val rated: String,
     val score: Double,
-    val url_image: String
+    val urlImage: String
 ) : Parcelable

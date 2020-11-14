@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/colorWhite"
     tools:context=".ui.detail.movie.DetailMovieActivity">
 
     <ImageView
@@ -154,16 +156,19 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
         android:backgroundTint="#f05454"
         android:src="@drawable/bg_button"
         android:text="Share"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/tv_rated" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_rated"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"

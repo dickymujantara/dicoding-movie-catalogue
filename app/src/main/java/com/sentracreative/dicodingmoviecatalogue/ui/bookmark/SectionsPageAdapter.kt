@@ -1,4 +1,4 @@
-package com.sentracreative.dicodingmoviecatalogue.ui.home
+package com.sentracreative.dicodingmoviecatalogue.ui.bookmark
 
 import android.content.Context
 import androidx.annotation.StringRes
@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.sentracreative.dicodingmoviecatalogue.R
-import com.sentracreative.dicodingmoviecatalogue.ui.movie.MovieFragment
-import com.sentracreative.dicodingmoviecatalogue.ui.tvshow.TvShowFragment
+import com.sentracreative.dicodingmoviecatalogue.ui.bookmark.movie.BookmarkMovieFragment
+import com.sentracreative.dicodingmoviecatalogue.ui.bookmark.tvshow.BookmarkTvShowFragment
 
 class SectionsPageAdapter(private val mContext : Context, fm : FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     companion object{
@@ -19,10 +19,11 @@ class SectionsPageAdapter(private val mContext : Context, fm : FragmentManager) 
 
     override fun getItem(position: Int): Fragment =
         when(position){
-            0 -> MovieFragment()
-            1 -> TvShowFragment()
+            0 -> BookmarkMovieFragment()
+            1 -> BookmarkTvShowFragment()
             else -> Fragment()
         }
 
-    override fun getPageTitle(position: Int): CharSequence? = mContext.resources.getString(TAB_TITLES[position])
+    override fun getPageTitle(position: Int): CharSequence? = mContext.resources.getString(
+        TAB_TITLES[position])
 }

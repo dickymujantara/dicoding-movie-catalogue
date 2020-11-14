@@ -1,4 +1,4 @@
-package com.sentracreative.dicodingmoviecatalogue.ui.tvshow
+package com.sentracreative.dicodingmoviecatalogue.ui.bookmark.tvshow
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -11,35 +11,30 @@ import com.sentracreative.dicodingmoviecatalogue.R
 import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.TvShowEntity
 import com.sentracreative.dicodingmoviecatalogue.ui.detail.tvshow.DetailTvShowActivity
 import kotlinx.android.synthetic.main.items_tv_show.view.*
-import kotlinx.android.synthetic.main.items_tv_show.view.img_poster
-import kotlinx.android.synthetic.main.items_tv_show.view.tv_genre
-import kotlinx.android.synthetic.main.items_tv_show.view.tv_score
-import kotlinx.android.synthetic.main.items_tv_show.view.tv_title
-import kotlinx.android.synthetic.main.items_tv_show.view.tv_year
 
-class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>(){
+class BookmarkTvShowAdapter : RecyclerView.Adapter<BookmarkTvShowAdapter.BookmarkTvShowViewHolder>(){
 
     private var listTvShow = ArrayList<TvShowEntity>()
 
-    fun setTvShow(tvShows : List<TvShowEntity>){
-        if (tvShows.isNullOrEmpty()) return
+    fun setTvShow(tvShow: List<TvShowEntity>){
+        if (tvShow.isNullOrEmpty()) return
         listTvShow.clear()
-        listTvShow.addAll(tvShows)
+        listTvShow.addAll(tvShow)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkTvShowViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.items_tv_show,parent,false)
-        return TvShowViewHolder(view)
+        return BookmarkTvShowViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: TvShowViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BookmarkTvShowViewHolder, position: Int) {
         val tvShow = listTvShow[position]
         holder.bind(tvShow)
     }
 
     override fun getItemCount(): Int = listTvShow.size
 
-    class TvShowViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+    class BookmarkTvShowViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bind(tvShow : TvShowEntity){
             with(itemView){
                 tv_title.text = tvShow.title

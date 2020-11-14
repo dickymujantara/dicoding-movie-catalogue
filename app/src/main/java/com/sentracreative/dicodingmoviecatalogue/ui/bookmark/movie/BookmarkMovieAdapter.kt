@@ -1,4 +1,4 @@
-package com.sentracreative.dicodingmoviecatalogue.ui.movie
+package com.sentracreative.dicodingmoviecatalogue.ui.bookmark.movie
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -12,29 +12,28 @@ import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieE
 import com.sentracreative.dicodingmoviecatalogue.ui.detail.movie.DetailMovieActivity
 import kotlinx.android.synthetic.main.items_movie.view.*
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-
+class BookmarkMovieAdapter : RecyclerView.Adapter<BookmarkMovieAdapter.BookmarkMovieHolder>() {
     private var listMovie = ArrayList<MovieEntity>()
 
-    fun setMovies(movies : List<MovieEntity>){
-        if (movies.isNullOrEmpty()) return
+    fun setMovies(movie : List<MovieEntity>){
+        if (movie.isNullOrEmpty()) return
         listMovie.clear()
-        listMovie.addAll(movies)
+        listMovie.addAll(movie)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkMovieHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.items_movie,parent,false)
-        return MovieViewHolder(view)
+        return BookmarkMovieHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BookmarkMovieHolder, position: Int) {
         val movie = listMovie[position]
         holder.bind(movie)
     }
 
     override fun getItemCount(): Int = listMovie.size
 
-    class MovieViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+    class BookmarkMovieHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bind(movie : MovieEntity){
             with(itemView){
                 tv_title.text = movie.title

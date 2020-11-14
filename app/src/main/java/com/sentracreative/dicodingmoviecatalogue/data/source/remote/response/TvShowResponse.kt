@@ -12,5 +12,5 @@ data class TvShowResponse(
     val episode : String,
     val year : String,
     val rating : Double,
-    val url_image : String
+    val urlImage : String
 ) : Parcelable
