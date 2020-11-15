@@ -1,6 +1,7 @@
 package com.sentracreative.dicodingmoviecatalogue.data.source.local
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieEntity
 import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.TvShowEntity
 import com.sentracreative.dicodingmoviecatalogue.data.source.local.room.MovieDao
@@ -15,9 +16,9 @@ class LocalDataSource private constructor(private val mMovieDao : MovieDao) {
 
     }
 
-    fun getAllMovies() : LiveData<List<MovieEntity>> = mMovieDao.getMovies()
+    fun getAllMovies() : DataSource.Factory<Int, MovieEntity> = mMovieDao.getMovies()
 
-    fun getBookmarkedMovie() : LiveData<List<MovieEntity>> = mMovieDao.getBookmarkedMovie()
+    fun getBookmarkedMovie() : DataSource.Factory<Int, MovieEntity> = mMovieDao.getBookmarkedMovie()
 
     fun getMovie(movieId : String) : LiveData<MovieEntity> = mMovieDao.getMovieById(movieId)
 
@@ -30,9 +31,9 @@ class LocalDataSource private constructor(private val mMovieDao : MovieDao) {
         mMovieDao.updateMovie(movie)
     }
 
-    fun getAllTvShows() : LiveData<List<TvShowEntity>> = mMovieDao.getTvShows()
+    fun getAllTvShows() : DataSource.Factory<Int, TvShowEntity> = mMovieDao.getTvShows()
 
-    fun getBookmarkedTvShow() : LiveData<List<TvShowEntity>> = mMovieDao.getBookmarkedTvShow()
+    fun getBookmarkedTvShow() : DataSource.Factory<Int, TvShowEntity> = mMovieDao.getBookmarkedTvShow()
 
     fun getTvShow(tvShowId : String) : LiveData<TvShowEntity> = mMovieDao.getTvShowById(tvShowId)
 

@@ -3,7 +3,6 @@ package com.sentracreative.dicodingmoviecatalogue.data.source.remote
 import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieEntity
 import com.sentracreative.dicodingmoviecatalogue.data.source.remote.response.MovieResponse
 import com.sentracreative.dicodingmoviecatalogue.data.source.remote.response.TvShowResponse
 import com.sentracreative.dicodingmoviecatalogue.utils.EspressoldingResource
@@ -74,21 +73,4 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper){
 
         return resultTvShow
     }
-
-    interface LoadMoviesCallback{
-        fun onAllMoviesReceived(movieResponses : List<MovieResponse>)
-    }
-
-    interface loadMovieCallback{
-        fun onMovieReceived(movieResponse: MovieResponse)
-    }
-
-    interface loadTvShowsCallback{
-        fun onAllTvShowsReceived(tvShowResponses : List<TvShowResponse>)
-    }
-
-    interface loadTvShowCallback{
-        fun onTvShowReceived(tvShowResponse: TvShowResponse)
-    }
-
 }

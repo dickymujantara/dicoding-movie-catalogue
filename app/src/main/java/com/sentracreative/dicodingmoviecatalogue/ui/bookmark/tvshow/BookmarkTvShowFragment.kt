@@ -33,7 +33,7 @@ class BookmarkTvShowFragment : Fragment() {
             viewModel.getTvShows().observe(this, Observer { tvshow ->
                 if (tvshow != null){
                     progress_bar.visibility = View.GONE
-                    adapter.setTvShow(tvshow)
+                    adapter.submitList(tvshow)
                     adapter.notifyDataSetChanged()
                 }
             })

@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -12,14 +14,18 @@ import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieE
 import com.sentracreative.dicodingmoviecatalogue.ui.detail.movie.DetailMovieActivity
 import kotlinx.android.synthetic.main.items_movie.view.*
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter internal constructor(): PagedListAdapter<MovieEntity,MovieAdapter.MovieViewHolder>(DIFF_CALLBACK) {
 
-    private var listMovie = ArrayList<MovieEntity>()
+    companion object{
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>(){
+            override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem.movieId == newItem.movieId
+            }
 
-    fun setMovies(movies : List<MovieEntity>){
-        if (movies.isNullOrEmpty()) return
-        listMovie.clear()
-        listMovie.addAll(movies)
+            override fun areContentsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -28,11 +34,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = listMovie[position]
-        holder.bind(movie)
+        val movie = getItem(position)
+        if (movie != null){
+            holder.bind(movie)
+        }
     }
-
-    override fun getItemCount(): Int = listMovie.size
 
     class MovieViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bind(movie : MovieEntity){

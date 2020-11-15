@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sentracreative.dicodingmoviecatalogue.R
+import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.TvShowEntity
 import com.sentracreative.dicodingmoviecatalogue.viewmodel.ViewModelFactory
 import com.sentracreative.dicodingmoviecatalogue.vo.Status
 import kotlinx.android.synthetic.main.fragment_tv_show.*
@@ -36,7 +38,7 @@ class TvShowFragment : Fragment() {
                         Status.LOADING -> progress_bar.visibility = View.VISIBLE
                         Status.SUCCESS -> {
                             progress_bar.visibility = View.GONE
-                            tvShow.data?.let { adapter.setTvShow(it) }
+                            adapter.submitList(tvShow.data)
                             adapter.notifyDataSetChanged()
                         }
                         Status.ERROR -> {

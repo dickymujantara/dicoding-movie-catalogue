@@ -32,7 +32,7 @@ class BookmarkMovieFragment : Fragment() {
 
             viewModel.getMovies().observe(this, Observer { movie ->
                 progress_bar.visibility = View.GONE
-                adapter.setMovies(movie)
+                adapter.submitList(movie)
                 adapter.notifyDataSetChanged()
             })
 

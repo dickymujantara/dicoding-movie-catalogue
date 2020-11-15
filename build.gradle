@@ -31,6 +31,7 @@ ext {
 
     archLifecycleVersion = '2.1.0'
     roomVersion = '2.2.3'
+    pagingVersion = '2.1.1'
 }
 allprojects {
     repositories {

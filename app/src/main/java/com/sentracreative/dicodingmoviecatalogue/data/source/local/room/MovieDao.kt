@@ -1,6 +1,7 @@
 package com.sentracreative.dicodingmoviecatalogue.data.source.local.room
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.*
 import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieEntity
 import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.TvShowEntity
@@ -9,10 +10,10 @@ import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.TvShow
 interface MovieDao {
 
     @Query("SELECT * FROM movieentities")
-    fun getMovies() : LiveData<List<MovieEntity>>
+    fun getMovies() :  DataSource.Factory<Int,MovieEntity>
 
     @Query("SELECT * FROM movieentities WHERE bookmarked = 1")
-    fun getBookmarkedMovie() : LiveData<List<MovieEntity>>
+    fun getBookmarkedMovie() : DataSource.Factory<Int,MovieEntity>
 
     @Query("SELECT * FROM movieentities WHERE movieId = :movieId")
     fun getMovieById(movieId : String) : LiveData<MovieEntity>
@@ -24,10 +25,10 @@ interface MovieDao {
     fun updateMovie(movieEntity: MovieEntity)
 
     @Query("SELECT * FROM tvshowentities")
-    fun getTvShows() : LiveData<List<TvShowEntity>>
+    fun getTvShows() : DataSource.Factory<Int,TvShowEntity>
 
     @Query("SELECT * FROM tvshowentities WHERE bookmarked = 1")
-    fun getBookmarkedTvShow() : LiveData<List<TvShowEntity>>
+    fun getBookmarkedTvShow() : DataSource.Factory<Int,TvShowEntity>
 
     @Query("SELECT * FROM tvshowentities WHERE tvShowId = :tvShowId")
     fun getTvShowById(tvShowId : String) : LiveData<TvShowEntity>

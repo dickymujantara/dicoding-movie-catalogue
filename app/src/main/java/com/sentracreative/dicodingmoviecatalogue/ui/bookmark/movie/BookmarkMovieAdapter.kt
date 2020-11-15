@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -12,13 +14,17 @@ import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieE
 import com.sentracreative.dicodingmoviecatalogue.ui.detail.movie.DetailMovieActivity
 import kotlinx.android.synthetic.main.items_movie.view.*
 
-class BookmarkMovieAdapter : RecyclerView.Adapter<BookmarkMovieAdapter.BookmarkMovieHolder>() {
-    private var listMovie = ArrayList<MovieEntity>()
+class BookmarkMovieAdapter internal constructor(): PagedListAdapter<MovieEntity,BookmarkMovieAdapter.BookmarkMovieHolder>(DIFF_CALLBACK) {
+    companion object{
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>(){
+            override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem.movieId == newItem.movieId
+            }
 
-    fun setMovies(movie : List<MovieEntity>){
-        if (movie.isNullOrEmpty()) return
-        listMovie.clear()
-        listMovie.addAll(movie)
+            override fun areContentsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkMovieHolder {
@@ -27,11 +33,11 @@ class BookmarkMovieAdapter : RecyclerView.Adapter<BookmarkMovieAdapter.BookmarkM
     }
 
     override fun onBindViewHolder(holder: BookmarkMovieHolder, position: Int) {
-        val movie = listMovie[position]
-        holder.bind(movie)
+        val movie = getItem(position)
+        if (movie != null){
+            holder.bind(movie)
+        }
     }
-
-    override fun getItemCount(): Int = listMovie.size
 
     class BookmarkMovieHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bind(movie : MovieEntity){

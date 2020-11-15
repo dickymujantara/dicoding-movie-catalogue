@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -17,14 +19,19 @@ import kotlinx.android.synthetic.main.items_tv_show.view.tv_score
 import kotlinx.android.synthetic.main.items_tv_show.view.tv_title
 import kotlinx.android.synthetic.main.items_tv_show.view.tv_year
 
-class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>(){
+class TvShowAdapter internal constructor(): PagedListAdapter<TvShowEntity,TvShowAdapter.TvShowViewHolder>(
+    DIFF_CALLBACK){
 
-    private var listTvShow = ArrayList<TvShowEntity>()
+    companion object{
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TvShowEntity>(){
+            override fun areItemsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
+                return oldItem.tvShowId == newItem.tvShowId
+            }
 
-    fun setTvShow(tvShows : List<TvShowEntity>){
-        if (tvShows.isNullOrEmpty()) return
-        listTvShow.clear()
-        listTvShow.addAll(tvShows)
+            override fun areContentsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowViewHolder {
@@ -33,11 +40,11 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: TvShowViewHolder, position: Int) {
-        val tvShow = listTvShow[position]
-        holder.bind(tvShow)
+        val tvShow = getItem(position)
+        if (tvShow != null){
+            holder.bind(tvShow)
+        }
     }
-
-    override fun getItemCount(): Int = listTvShow.size
 
     class TvShowViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bind(tvShow : TvShowEntity){
