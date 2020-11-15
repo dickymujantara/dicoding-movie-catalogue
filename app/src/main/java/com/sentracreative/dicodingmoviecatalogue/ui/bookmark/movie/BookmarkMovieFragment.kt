@@ -5,16 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ShareCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.sentracreative.dicodingmoviecatalogue.R
+import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieEntity
 import com.sentracreative.dicodingmoviecatalogue.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_bookmark_movie.*
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 import kotlinx.android.synthetic.main.fragment_tv_show.progress_bar
 
-class BookmarkMovieFragment : Fragment() {
+class BookmarkMovieFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_bookmark_movie, container, false)

@@ -8,4 +8,10 @@ import com.sentracreative.dicodingmoviecatalogue.data.source.local.entity.MovieE
 
 class BookmarkMovieViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
     fun getMovies() : LiveData<PagedList<MovieEntity>> = movieCatalogueRepository.getBookmarkedMovie()
+
+    fun setBookmark(movieEntity: MovieEntity){
+        val newState = !movieEntity.bookmarked
+        movieCatalogueRepository.setMovieBookmark(movieEntity,newState)
+    }
+
 }

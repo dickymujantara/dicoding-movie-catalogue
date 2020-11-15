@@ -33,7 +33,7 @@ class HomeActivityTest{
     }
 
     @Test
-    fun loadMovieas(){
+    fun loadMovies(){
         onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size))
     }
@@ -45,23 +45,64 @@ class HomeActivityTest{
         onView(withId(R.id.tv_title)).check(matches(withText(dummyMovie[0].title)))
         onView(withId(R.id.tv_desc)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_desc)).check(matches(withText(dummyMovie[0].description)))
+        onView(withId(R.id.action_bookmark)).perform(click())
     }
 
     @Test
     fun loadTvShows(){
-        onView(withText(R.string.tv_show)).perform(click())
+        onView(withId(R.id.menu_tvshow)).perform(click())
         onView(withId(R.id.rv_tv_show)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size))
     }
 
     @Test
     fun loadDetailTvShow(){
-        onView(withText(R.string.tv_show)).perform(click())
+        onView(withId(R.id.menu_tvshow)).perform(click())
         onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_title)).check(matches(withText(dummyTvShow[0].title)))
         onView(withId(R.id.tv_desc)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_desc)).check(matches(withText(dummyTvShow[0].description)))
+        onView(withId(R.id.action_bookmark)).perform(click())
+    }
+
+    @Test
+    fun loadBookmarkMovie(){
+        onView(withId(R.id.menu_bookmark)).perform(click())
+        onView(withId(R.id.rv_movie_bookmark)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_movie_bookmark)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size))
+    }
+
+    @Test
+    fun loadDetailBookmarkMovie(){
+        onView(withId(R.id.menu_bookmark)).perform(click())
+        onView(withId(R.id.rv_movie_bookmark)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_title)).check(matches(withText(dummyMovie[0].title)))
+        onView(withId(R.id.tv_desc)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_desc)).check(matches(withText(dummyMovie[0].description)))
+        onView(withId(R.id.action_bookmark)).perform(click())
+    }
+
+    @Test
+    fun loadBookmarkTvShows(){
+        onView(withId(R.id.menu_bookmark)).perform(click())
+        onView(withText(R.string.tv_show_tab)).perform(click())
+        onView(withId(R.id.rv_tv_show_bookmark)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_tv_show_bookmark)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size))
+    }
+
+    @Test
+    fun loadDetailBookmarkTvShow(){
+        onView(withId(R.id.menu_bookmark)).perform(click())
+        onView(withText(R.string.tv_show_tab)).perform(click())
+        onView(withId(R.id.rv_tv_show_bookmark)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_tv_show_bookmark)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_title)).check(matches(withText(dummyTvShow[0].title)))
+        onView(withId(R.id.tv_desc)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_desc)).check(matches(withText(dummyTvShow[0].description)))
+        onView(withId(R.id.action_bookmark)).perform(click())
     }
 
 }

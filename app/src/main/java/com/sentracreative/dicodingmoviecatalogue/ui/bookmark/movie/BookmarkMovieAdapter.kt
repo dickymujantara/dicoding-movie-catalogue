@@ -39,6 +39,8 @@ class BookmarkMovieAdapter internal constructor(): PagedListAdapter<MovieEntity,
         }
     }
 
+    fun getSwipeData(swipedPosition : Int) : MovieEntity = getItem(swipedPosition)!!
+
     class BookmarkMovieHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bind(movie : MovieEntity){
             with(itemView){

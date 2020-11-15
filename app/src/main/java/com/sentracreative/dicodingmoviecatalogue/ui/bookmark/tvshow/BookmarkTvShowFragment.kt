@@ -24,10 +24,10 @@ class BookmarkTvShowFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null){
+
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this,factory)[BookmarkTvShowViewModel::class.java]
             val adapter = BookmarkTvShowAdapter()
-
             progress_bar.visibility = View.VISIBLE
 
             viewModel.getTvShows().observe(this, Observer { tvshow ->

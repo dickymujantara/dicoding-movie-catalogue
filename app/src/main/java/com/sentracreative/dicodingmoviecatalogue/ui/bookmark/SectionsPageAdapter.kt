@@ -12,7 +12,7 @@ import com.sentracreative.dicodingmoviecatalogue.ui.bookmark.tvshow.BookmarkTvSh
 class SectionsPageAdapter(private val mContext : Context, fm : FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     companion object{
         @StringRes
-        private val TAB_TITLES = intArrayOf(R.string.movies, R.string.tv_show)
+        private val TAB_TITLES = intArrayOf(R.string.movies_tab, R.string.tv_show_tab)
     }
 
     override fun getCount(): Int = TAB_TITLES.size

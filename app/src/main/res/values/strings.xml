@@ -2,6 +2,10 @@
     <string name="app_name">Dicoding Movie Catalogue</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="movies">Movies</string>
+    <string name="movies_tab">Movies</string>
     <string name="tv_show">TV Show</string>
+    <string name="tv_show_tab">TV Show</string>
     <string name="bookmarks">Bookmarks</string>
+    <string name="message_undo">Batalkan menghapus item sebelumnya?</string>
+    <string name="message_ok">OK</string>
 </resources>
